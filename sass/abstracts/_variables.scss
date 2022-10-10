@@ -1,0 +1,21 @@
+$small-mobile-width: 250px;
+$mobile-width: 450px;
+$tablet-width: 744px;
+$desktop-width: 1440px;
+
+$white: white;
+$background: #fcfcfc;
+$blue: #006ac6;
+$yellow: #fab700;
+$grey: #75787b;
+$lt-grey: #ddd;
+$dark-gray: #34495e;
+$red: rgb(188, 32, 32);
+$green: #04AA6D;
+
+$font-size: 10px;
+$headline: #{$font-size * 4};
+$title: #{$font-size * 2.5};
+$large-body: #{$font-size * 2};
+$body: #{$font-size * 1.6};
+$secondary-body: #{$font-size * 1.28};

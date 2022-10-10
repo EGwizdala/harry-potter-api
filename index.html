@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter Scool</title>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined"
+      rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    
+    
+</head>
+<body>
+    <header class ="navigation">
+      <div class="navigation__hamburger">
+        <span class="material-icons-outlined navigation__hamburger-icon">
+        menu
+        </span>
+      </div>
+        <nav class ="navigation__main">
+            <button class="navigation__button button" id="students" name="nav">All students</button>
+            <button class="navigation__button button" id="house-gryffindor" name="nav">Gryffindor</button>
+            <button class="navigation__button button" id="house-slytherin" name="nav">Slytherin</button>
+            <button class="navigation__button button" id="house-hufflepuff" name="nav">Hufflepuff</button>
+            <button class="navigation__button button" id="house-ravenclaw" name="nav">Ravenclaw</button>
+            <button class="navigation__button button" id="favourites" name="nav">Favorites</button>
+        </nav>
+    </header>
+    <main>
+      <div class="table-overflow">
+        <table class="table">
+            <caption class="table__caption">Hogwart Scool</caption>
+            <thead class="table__thead">
+                <th data-column="name" data-order="desc" class="table__sort" >
+                  Name 
+                  <span data-id="sort-arrow"  class="material-icons-outlined table__sort">
+                  expand_more
+                  </span>
+                </th>
+                <th data-column="date" data-order="desc" class="table__sort">
+                  Date of birth
+                  <span data-id="sort-arrow" class="material-icons-outlined table__sort">
+                    expand_more
+                  </span>
+                </th>
+                <th data-column="house" data-order="desc" class="table__sort">
+                  House
+                  <span data-id="sort-arrow" class="material-icons-outlined table__sort">
+                    expand_more
+                  </span>
+                </th>
+                <th>Wizard</th>
+                <th>Ancestry</th>
+                <th>Is student / staff</th>
+              </thead>
+            <tbody id = 'paginated-list' class="table__tbody" aria-live="polite"></tbody>
+         </table>
+      </div>
+         <div id="favourites-section" class="favourites hidden">
+          <h2 class="favourites__header">My favourite characters</h2>
+          <div class="favourites__settings">
+            <div  class="favourites__checkbox">
+              <label for="display1">Display 1:</label> 
+              <input type="checkbox" id="display1" data-display="1" data-id="checkbox">
+            </div>
+            <div  class="favourites__checkbox">
+              <label for="display3">Display 3:</label> 
+              <input type="checkbox" id="display3" data-display="3" data-id="checkbox" checked>
+            </div>
+            <div id="checkbox-display5" class="favourites__checkbox">
+              <label for="display5">Display 5:</label> 
+              <input type="checkbox" id="display5" data-display="5" data-id="checkbox">
+            </div>
+          </div>
+          <div id="cards" class="favourites__cards"></div>
+        </div>
+    </main>
+    <div id="modal" class="modal hidden">
+      <div class="modal__container animate">
+        <button id="closeButton"  class="modal__close" title="Close Modal">
+          &times;
+        </button>
+        <div class="modal__img-container">
+          <img id="modal-avatar" src="./img/avatar.jpg" alt="default avatar" class="modal__img">
+        </div>
+        <div class="modal__content">
+          <ol id= "modal-data-list" class="modal__column-list">
+          </ol>
+        </div>
+        <div class="modal__controlers">
+          <button type="button" id="modal-add" name="add" class="modal__button button">Add to favourites</button>
+          <button type="button" id="modal-remove" name="remove" class="modal__button button">Remove from favourites</button>
+        </div>
+      </div>
+    </div>
+    <script  type="module" src="./scripts/buttonHandlers.js"></script>
+    <script  type="module" src="./scripts/tableHandlers.js"></script>
+    <script  type="module" src="./scripts/sortTable.js"></script>
+    <script  type="module" src="./scripts/modalHandlers.js"></script>
+    <script  type="module" src="./scripts/localStorageHandlers.js"></script>
+    <script  type="module" src="./scripts/favourites.js"></script>
+    <script  type="module" src="./scripts/cardsDisplay.js"></script>
+    <script  src="./scripts/navigation.js"></script>
+</body>
+</html>

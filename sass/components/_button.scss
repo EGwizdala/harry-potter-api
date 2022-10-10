@@ -1,0 +1,12 @@
+.button {
+    padding: 12px 10px;
+    margin: 0 15px 15px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    font-size: $secondary-body;
+    &:hover {
+        opacity: 0.8;
+    }
+}
