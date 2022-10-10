@@ -336,9 +336,6 @@
   cursor: pointer;
   transition: all 0.2s linear;
 }
-.table__thead {
-  border: 1px solid #ddd;
-}
 .table__thead th {
   text-transform: uppercase;
   text-align: center;
@@ -361,7 +358,6 @@
 }
 .table__tbody {
   max-width: 100vw;
-  border: 1px solid #ddd;
 }
 .table__tbody tr {
   color: #75787b;
