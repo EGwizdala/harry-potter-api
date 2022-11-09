@@ -1,9 +1,8 @@
-import { dataSet } from './tableHandlers.js';
-import { getModalData, URL } from './api.js';
+import { dataSet } from './const.js';
+import { getRequest, URL } from './api.js';
 
 export const character = {};
 
-const closeButton = document.getElementById('closeButton');
 const modal = document.getElementById('modal');
 const modalDataList = document.getElementById('modal-data-list');
 const modalAvatr = document.getElementById('modal-avatar');
@@ -59,15 +58,22 @@ export const openModal = (e) => {
   if (e.target.tagName !== 'TD') return;
   const row = e.target.parentNode;
   const characterName = row.cells[0].innerHTML;
-  getModalData(URL, characterName, setModalVisible);
+
+  getRequest(URL)
+    .then((data) => { setModalVisible(data, characterName) })
+    .catch(error => console.log(error.message));
 };
 
 const clearModal = () => {
     modalDataList.innerHTML = ''
 };
 
-
-closeButton.addEventListener('click', () => {
+export const closeModal = () => {
+  const closeButton = document.getElementById('closeButton');
+  closeButton.addEventListener('click', () => {
     modal.classList.toggle('hidden');
     clearModal();
 });
+}
+
+

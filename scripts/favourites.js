@@ -61,4 +61,6 @@ export const removeFromStorageHandler = (e) => {
     }
 }
 
-cards.addEventListener("click", removeFromStorageHandler)
+export const cardButtonRemoveFromFavourites = () => {
+    cards.addEventListener("click", removeFromStorageHandler)
+}

@@ -1,4 +1,4 @@
-export const dataSet = ["name", "dateOfBirth", "house", "wizard", "ancestry", "hogwartsStudent", "hogwartsStaff"];
+import { dataSet } from "./const.js";
 
 export const drawTable = (data, tableBody) => {
   for (const row of data) {

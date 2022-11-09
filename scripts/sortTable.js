@@ -1,4 +1,4 @@
-import { tableBody } from "./buttonHandlers.js";
+import { tableBody, mainTable } from "./const.js";
 
 const reverseDate = (date) => {
     return date.split('-').reverse().join('-');
@@ -49,7 +49,8 @@ const sortGrid = (e) => {
     tableBody.append(...rowsArray);
 };
 
-export const sortTable = function (tableHeader) {
+export const sortTable = function () {
+    const tableHeader = mainTable.querySelector('thead');
     const headers = tableHeader.querySelectorAll('th');
     headers.forEach(header => {
         header.addEventListener("click", sortGrid)
