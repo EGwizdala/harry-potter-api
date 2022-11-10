@@ -1,15 +1,25 @@
 import { dataSet } from './const.js';
 import { getRequest, URL } from './api.js';
+import { CharacterInterface } from './interfaces.js';
 
-export const character = {};
+export const character: CharacterInterface = {
+  ancestry: "",
+  dateOfBirth: "",
+  hogwartsStaff: false,
+  hogwartsStudent: false,
+  house: "",
+  image: "",
+  name: "",
+  wizard: false,
+};
 
-const modal = document.getElementById('modal');
-const modalDataList = document.getElementById('modal-data-list');
-const modalAvatr = document.getElementById('modal-avatar');
+const modal = document.getElementById('modal') as HTMLElement;
+const modalDataList = document.getElementById('modal-data-list') as HTMLElement;
+const modalAvatr = document.getElementById('modal-avatar') as HTMLImageElement;
 
 const modalDataSet = [...dataSet, 'image'];
 
-const addDataToModal = (title, content, parent, imgContainer) => {
+const addDataToModal = (title:string, content:string, parent: HTMLElement, imgContainer: HTMLImageElement) => {
     if (title === 'image') {
     !!content
       ? (imgContainer.src = content)
@@ -34,14 +44,14 @@ const addDataToModal = (title, content, parent, imgContainer) => {
   }
 };
 
-const createModalObject = (name, value, object) => {
+const createModalObject = (name:string, value:string, object:any) => {
     object[name] = value;
 };
 
-const setModalVisible = (data, characterName) => {
+const setModalVisible = (data:any, characterName:string) => {
     modal.classList.toggle('hidden');
     const characterData = data.find(
-        (character) => character.name === characterName
+        (character: any )=> character.name === characterName
     );
     modalDataSet.forEach((element) => {
         createModalObject(element, characterData[element], character);
@@ -54,13 +64,17 @@ const setModalVisible = (data, characterName) => {
     });
 };
 
-export const openModal = (e) => {
-  if (e.target.tagName !== 'TD') return;
-  const row = e.target.parentNode;
+export const openModal = (e: Event) => {
+  const target = e.target as HTMLElement
+  if (target.tagName !== 'TD') return;
+  const row = target.parentNode as HTMLTableRowElement;
   const characterName = row.cells[0].innerHTML;
 
   getRequest(URL)
-    .then((data) => { setModalVisible(data, characterName) })
+    .then((data) => {
+      console.log(data)
+      setModalVisible(data, characterName)
+    })
     .catch(error => console.log(error.message));
 };
 
@@ -69,7 +83,7 @@ const clearModal = () => {
 };
 
 export const closeModal = () => {
-  const closeButton = document.getElementById('closeButton');
+  const closeButton = document.getElementById('closeButton') as HTMLButtonElement;
   closeButton.addEventListener('click', () => {
     modal.classList.toggle('hidden');
     clearModal();

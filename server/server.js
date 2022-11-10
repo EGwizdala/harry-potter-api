@@ -7,6 +7,7 @@ var params = {
     open: false,
     ignore: 'scss,my/templates',
     file: "index.html",
-    wait: 1000
+    wait: 1000,
 };
+
 liveServer.start(params);

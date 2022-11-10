@@ -13,14 +13,14 @@ export const handleButtons = () => {
     buttons.forEach(button => {
         button.addEventListener('click', () => {
             if (button.id === "students") {
-                favouritesSection.classList.add('hidden');
+                favouritesSection!.classList.add('hidden');
                 mainTable.classList.remove('hidden');
                 clearTable(tableBody);
                 getRequest(`${URL}/students`)
                     .then((data) => drawTable(data, tableBody))
                     .catch(error => console.log(error.message));
             } else if (button.id.includes("house")) {
-                favouritesSection.classList.add('hidden');
+                favouritesSection!.classList.add('hidden');
                 mainTable.classList.remove('hidden');
                 clearTable(tableBody);
                 const house = button.id.slice(6);
@@ -29,7 +29,7 @@ export const handleButtons = () => {
                     .catch(error => console.log(error.message));
             } else if (button.id === "favourites") {
                 mainTable.classList.add('hidden')
-                favouritesSection.classList.remove('hidden');
+                favouritesSection!.classList.remove('hidden');
                 removeAllCardsFromFavourites()
                 addCardsToFavourites()
             }
@@ -37,6 +37,4 @@ export const handleButtons = () => {
     });
 }
 
-
 tableBody.addEventListener('click', openModal);
-

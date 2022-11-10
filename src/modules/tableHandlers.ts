@@ -1,6 +1,6 @@
 import { dataSet } from "./const.js";
 
-export const drawTable = (data, tableBody) => {
+export const drawTable = (data:[], tableBody: HTMLTableSectionElement) => {
   for (const row of data) {
     const rowElement = document.createElement('tr');
     let isStudent = false;
@@ -35,6 +35,6 @@ export const drawTable = (data, tableBody) => {
   };
 }
 
-export const clearTable = (table) => {
+export const clearTable = (table: HTMLTableSectionElement) => {
   table.replaceChildren();
 };

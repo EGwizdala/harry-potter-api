@@ -1,8 +1,9 @@
 import { getDataFromStorage, removeDataFromStorage } from "./localStorageHandlers.js";
+import { FavouriteInterface } from "./interfaces.js";
 
-const cards = document.getElementById("cards")
+const cards = document.getElementById("cards") as HTMLElement;
 
-const createFavouritesCard = (favourite) => {
+const createFavouritesCard = (favourite: FavouriteInterface) => {
     const { name, image } = favourite;
     const cardElement = document.createElement('div');
     const imgContainerElement = document.createElement('div');
@@ -51,12 +52,12 @@ export const removeAllCardsFromFavourites = () => {
     cards.innerHTML = ""
 }
 
-export const removeFromStorageHandler = (e) => {
-    if (e.target.dataset.id === "favourites-remove") {
-        const parent = e.target.parentNode;
+export const removeFromStorageHandler = (e: Event) => {
+    const target = e.target as HTMLElement;
+    if (target.dataset.id === "favourites-remove") {
+        const parent = target.parentNode as HTMLElement;
         const key = parent.querySelector(".card__name");
-        console.log(key.innerHTML);
-        removeDataFromStorage(key.innerHTML);
+        removeDataFromStorage(key!.innerHTML);
         parent.remove()
     }
 }

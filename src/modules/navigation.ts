@@ -1,6 +1,6 @@
 export const handleNavigation = () => {
-    const hamburger = document.querySelector(".navigation__hamburger-icon");
-    const navMain = document.querySelector(".navigation__main");
+    const hamburger = document.querySelector(".navigation__hamburger-icon") as HTMLElement;
+    const navMain = document.querySelector(".navigation__main") as HTMLElement;
     
     hamburger.addEventListener("click", () => {
         navMain.classList.toggle('hidden')
